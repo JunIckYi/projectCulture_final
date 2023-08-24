@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.client.board.dao.BoardDAO">
+
+
+	<select id="boardList" resultType="board">
+		SELECT b_num, b_name, b_title, to_char(b_date,'YYYY-MM-DD') AS b_date
+		FROM spring_board
+		ORDER BY b_num desc
+	</select>
+	
+	<insert id="boardInsert"  parameterType="board">
+		Insert into spring_board ( b_num, b_name, b_title, b_content, b_pwd) 
+		values (spring_board_seq.nextval, #{b_name}, #{b_title}, #{b_content}, #{b_pwd})
+	</insert>
+
+</mapper>
