@@ -21,6 +21,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> boardList(){
 		List<BoardVO> list = null;
 		list = boardDAO.boardList();
+		
 		return list;
 	}
 	
@@ -31,5 +32,18 @@ public class BoardServiceImpl implements BoardService {
 		result = boardDAO.boardInsert(bvo);
 		
 		return result;
+	}
+	
+	@Override
+	public BoardVO boardDetail(BoardVO bvo) {
+		boardDAO.readCntUpdate(bvo); // 조회수 증가 메서드 서비스에서 명시할 필요가 없음
+		
+		BoardVO detail = boardDAO.boardDetail(bvo);
+		if(detail !=null) {
+			detail.setB_content(detail.getB_content().toString().replaceAll("\n", "<br/>"));
+			
+		}
+		
+		return detail;
 	}
 }

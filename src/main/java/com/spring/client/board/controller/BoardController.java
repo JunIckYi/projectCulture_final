@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.spring.client.board.service.BoardService;
 import com.spring.client.board.vo.BoardVO;
 
@@ -31,6 +33,7 @@ public class BoardController {
 		List<BoardVO> boardList = boardService.boardList();
 		model.addAttribute("boardList",boardList);
 		return "client/board/boardList";
+		
 	}
 	
 	@GetMapping("/writeForm")
@@ -56,6 +59,16 @@ public class BoardController {
 		}
 		
 		return "redirect:"+url;
+	}
+	
+	@GetMapping("/boardDetail")
+	public String boardDetail(@ModelAttribute BoardVO bvo, Model model) {
+		log.info("boardDetail 호출 성공");
+		log.info("bvo = " + bvo.getB_num());
+		BoardVO detail = boardService.boardDetail(bvo);
+		model.addAttribute("detail", detail);
+
+		return "client/board/boardDetail";
 	}
 	
 	

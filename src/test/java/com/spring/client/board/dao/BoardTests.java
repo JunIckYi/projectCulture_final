@@ -28,17 +28,39 @@ public class BoardTests {
 		}
 	}
 	
-	public void testInsert() {
-		BoardVO board = new BoardVO();
-		board.setB_name("김청수");
-		board.setB_title("용기가 필요할 때");
-		board.setB_content("도중에 포기하지 말라");
-		board.setB_pwd("1234");
+//	public void testInsert() {
+//		BoardVO board = new BoardVO();
+//		board.setB_name("김청수");
+//		board.setB_title("용기가 필요할 때");
+//		board.setB_content("도중에 포기하지 말라");
+//		board.setB_pwd("1234");
+//		
+//		int count = boardDAO.boardInsert(board);
+//		log.info("입력된 행의 수:"+ count);
+//		
+//	}
+	
+	@Test
+	public void testReadCntUpdate() {
+		BoardVO bvo = new BoardVO();
+		bvo.setB_num(1);
 		
-		int count = boardDAO.boardInsert(board);
-		log.info("입력된 행의 수:"+ count);
+		int count = boardDAO.readCntUpdate(bvo);
 		
+		log.info("수정된 행의 수: " + count);
 	}
+	
+	@Test
+	public void testBoardDetail() {
+		BoardVO bvo = new BoardVO();
+		bvo.setB_num(1);
+		
+		BoardVO board =  boardDAO.boardDetail(bvo);
+		
+		
+		log.info("레코드 조회 " + board.toString());
+	}
+	
 	
 
 }
