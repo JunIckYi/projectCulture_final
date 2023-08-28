@@ -46,4 +46,32 @@ public class BoardServiceImpl implements BoardService {
 		
 		return detail;
 	}
+	
+	@Override
+	public int pwdConfirm(BoardVO bvo) {
+		int result = 0;
+		result = boardDAO.pwdConfirm(bvo);
+		return result;
+	}
+	
+	public BoardVO updateForm(BoardVO bvo) {
+		BoardVO updateData = null;
+		updateData = boardDAO.boardDetail(bvo);
+		return updateData;
+	}
+	
+	public int boardUpdate(BoardVO bvo) {
+		int result = 0 ;
+		
+		result = boardDAO.boardUpdate(bvo);
+		
+		return result;
+	}
+	
+	 public int boardDelete(BoardVO bvo) {
+		 
+		int result =  boardDAO.boardDelete(bvo);
+		
+		return result;
+	 }
 }

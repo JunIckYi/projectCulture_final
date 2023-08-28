@@ -15,22 +15,44 @@
 	</insert>
 	
 	 <!-- 상세 페이지를 위한 게시물 조회 -->
-   <select id="boardDetail" parameterType="board" resultType="board">
-      /* Board -    boardDetail */
-      SELECT
-            b_num, b_name, b_title, b_content,
-            TO_CHAR(b_date, 'YYYY-MM-DD HH24:MI:SS') AS b_date, readcnt
-      FROM spring_board
-      WHERE b_num = #{b_num}
-   </select>
+    <select id="boardDetail" parameterType="board" resultType="board">
+        /* Board -    boardDetail */
+        SELECT
+              b_num, b_name, b_title, b_content,
+              TO_CHAR(b_date, 'YYYY-MM-DD HH24:MI:SS') AS b_date, readcnt
+        FROM spring_board
+        WHERE b_num = #{b_num}
+    </select>
    
-   <update id="readCntUpdate" parameterType="board">
-      /* Board - readCntUpdate */
-      UPDATE spring_board
-      SET readcnt = readcnt + 1
-      WHERE b_num = #{b_num}
-   </update>
+    <update id="readCntUpdate" parameterType="board">
+        /* Board - readCntUpdate */
+        UPDATE spring_board
+        SET readcnt = readcnt + 1
+        WHERE b_num = #{b_num}
+    </update>
+   
+    <select id="pwdConfirm" parameterType="board" resultType="int">
+ 	 
+ 	    select nvl((select 1 from spring_board where b_num = #{b_num} and b_pwd = #{b_pwd}), 0) as result from dual
+    </select>
+	 
+   
+   
+   	<update id="boardUpdate" parameterType="board" >
+ 		 UPDATE spring_board 
+ 		 SET b_title = #{b_title}, 
+ 		     b_content = #{b_content}, 
+ 		     b_date = sysdate
+ 		     <if test="#{b_pwd} != ''">
+ 		    	, b_pwd= #{b_pwd} 
+ 		     </if>   
+ 		 WHERE b_num = #{b_num}
+    </update>
 	
+	
+	<delete id="boardDelete" parameterType="board">
+	 	delete from spring_board where b_num = #{b_num}
+	</delete>
 	
 	
 
