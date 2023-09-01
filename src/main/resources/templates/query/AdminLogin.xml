@@ -17,11 +17,31 @@
 
 	<!-- <select id="loginProcess" parameterType="adminLogin" resultType="adminLoginMap"> -->	
 	<select id="loginProcess" parameterType="adminLogin" resultType="adminLogin">
-		/* 로그인 처리 쿼리 */
-		
-		select a_id, a_name, a_email 
-		from spring_admin
-		where a_id= #{a_id} and a_pwd = #{a_pwd}
+		select MANAGER_SEQ.nextval,mid, memail,mphone ,mdepart, sysdate
+		from MANAGER
+		where mid=#{mid} and mpw = #{mpw}
 	</select>
+	
+	
+	<update id="mgMyPageUpdate" parameterType="adminLogin" >
+ 		 UPDATE MANAGER
+ 		 SET memail = #{memail}, 
+ 		     mphone = #{mphone},
+ 		     mdepart = #{mdepart}
+ 		     <if test="#{mpw} != ''">
+ 		    	, mpw= #{mpw} 
+ 		     </if>   
+ 		 WHERE mid = #{mid}
+    </update>
+    
+    
+    
+    <select id="adminInfoList" parameterType="adminLogin" resultType="adminLogin">
+		select MANAGER_SEQ.nextval,mid, memail,mphone, mpw ,mdepart, sysdate
+		from MANAGER
+		where mid=#{mid}
+	</select>
+    
+    
 
-</mapper>
+</mapper>	

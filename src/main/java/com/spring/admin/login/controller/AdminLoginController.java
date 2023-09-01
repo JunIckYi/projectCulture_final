@@ -1,5 +1,7 @@
 package com.spring.admin.login.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 //import java.util.List;
@@ -14,7 +16,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.admin.login.service.AdminLoginService;
-import com.spring.admin.login.vo.AdminLoginVO;
+
+import com.spring.admin.login.vo.AdminVO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -35,9 +38,9 @@ public class AdminLoginController {
 	public AdminLoginService adminLoginService;
 	
 	
-	@GetMapping("/login")
+	@GetMapping("/loginPage")
 	public String loginForm() {
-		
+		log.info("loginForm   호출 성공");
 		return "client/admin/main";
 	}
 	
@@ -57,31 +60,113 @@ public class AdminLoginController {
 	 * 이때 ras.addFlashAttribute("errorMsg", "error"); 
 	 * redirect:/admin/login으로 이동
 	 **************************************************************/
-	
-	@PostMapping("/login")
-	public String loginProcess(AdminLoginVO login, Model model, RedirectAttributes ras) {
-		log.info("loginProcess 호출 성공");
-		AdminLoginVO adminLogin = adminLoginService.loginProcess(login);
-
+	@GetMapping("/login")
+	public String adminBoard(HttpSession session, Model model, RedirectAttributes ras) {
+		log.info("adminBoard  login 호출 성공");
+		
+		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
+		log.info("adminLogin:" + adminLogin);
+		String url = "";
+		model.addAttribute("adminLogin", adminLogin);
+		
+		
 		if(adminLogin != null) {
 			model.addAttribute("adminLogin",adminLogin);
-			// url = "/admin/board/boardList"
-		}else {
+			 url = "client/admin/adminBoard";
+		}else  {
 			ras.addFlashAttribute("errorMsg","로그인 실패");
-			// url = "/admin/login"
+			 url = "redirect:/admin/loginPage";
 		}
 		
-		return "redirect:/admin/login";
+		
+		return url;
 	}
 	
-   @RequestMapping("/logout")
-   public String logout(SessionStatus sessionStatus) {
-      log.info("admin 로그인 아웃 처리");
-      sessionStatus.setComplete();
-      return "redirect:/admin/login";
-   }
-
+	@PostMapping("/login")
+	public String loginProcess(AdminVO login, Model model, RedirectAttributes ras) {
+		log.info("loginProcess 호출 성공");
+		AdminVO adminLogin = adminLoginService.loginProcess(login);
+		String url = "";
+		
+		if(adminLogin != null) {
+			model.addAttribute("adminLogin",adminLogin);
+			 url = "client/admin/adminBoard";
+		}else {
+			ras.addFlashAttribute("errorMsg","로그인 실패");
+			 url = "redirect:/admin/loginPage";
+		}
+		return url;
+	}
 	
+    @RequestMapping("/logout")
+    public String logout(SessionStatus sessionStatus) {
+       log.info("admin 로그인 아웃 처리");
+       sessionStatus.setComplete();
+       return "redirect:/admin/loginPage";
+    }
+   
+    @GetMapping("/mgMyPage")
+   public String mgMyPage(HttpSession session, Model model, RedirectAttributes ras) {
+    	log.info("mgMyPage 호출 성공");
+    	
+		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
+		log.info("adminLogin:" + adminLogin);
+		String url = "";
+		model.addAttribute("adminLogin", adminLogin);
+		
+		AdminVO adminUpdate = adminLoginService.adminInfoList(adminLogin);
+		model.addAttribute("adminUpdate",adminUpdate);
+		log.info("adminUpdate:" + adminUpdate);
+		
+		if(adminLogin != null) {
+			model.addAttribute("adminLogin",adminLogin);
+			 url = "client/admin/mgMyPage";
+		}else {
+			ras.addFlashAttribute("errorMsg","로그인 실패");
+			 url = "client/admin/loginPage";
+		}
+		
+		return url;
+
+	   
+    }
+    
+    @PostMapping("/mgMyPageUpdate")
+   public String mgMyPageUpdate(AdminVO avo,Model model) {
+    	log.info("mgMyPageUpdate: mgMyPageUpdate 호출 성공");
+    	adminLoginService.mgMyPageUpdate(avo);
+    	AdminVO adminLogin = adminLoginService.loginProcess(avo);
+    	model.addAttribute("adminLogin",adminLogin);
+    	
+	    return "client/admin/adminBoard";
+    }
+    
+    
+    
+    @GetMapping("/adminMvBoard")
+   public String adminMvBoard(HttpSession session,Model model,RedirectAttributes ras) {
+		log.info("adminBoard 호출 성공");
+		
+		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
+		log.info("adminLogin:" + adminLogin);
+		String url = "";
+		model.addAttribute("adminLogin", adminLogin);
+		
+		
+		if(adminLogin != null) {
+			model.addAttribute("adminLogin",adminLogin);
+			 url = "client/admin/adminMvBoard";
+		}else if(adminLogin == null){
+			ras.addFlashAttribute("errorMsg","잘못 된 접근입니다.");
+			 url = "client/admin/loginPage";
+		}
+		
+		
+		return url;
+	   
+	   
+    }
+
 
 
 }

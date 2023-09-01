@@ -16,13 +16,24 @@ public class BoardServiceImpl implements BoardService {
 	@Setter(onMethod_ = @Autowired)
 	private BoardDAO boardDAO;
 	
-	//글목록 구현
+//	@Setter(onMethod_ = @Autowired)
+//	private ReplayDao replyDao;
+
+	   //글목록 구현+검색
 	@Override
-	public List<BoardVO> boardList(){
-		List<BoardVO> list = null;
-		list = boardDAO.boardList();
-		
-		return list;
+	public List<BoardVO> boardList(BoardVO bvo){
+	   List<BoardVO> list = null;
+	   list = boardDAO.boardList(bvo);
+	      
+	   return list;
+	}
+	   
+	@Override
+	public int boardListCnt(BoardVO bvo) {
+	   int result = 0;
+	   result = boardDAO.boardListCnt(bvo);
+	      
+	   return result;
 	}
 	
 	//글입력 구현
@@ -74,4 +85,6 @@ public class BoardServiceImpl implements BoardService {
 		
 		return result;
 	 }
+	 
+
 }

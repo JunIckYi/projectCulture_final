@@ -28,14 +28,7 @@ public class DataController {
 	
 
 	
-	@ResponseBody
-	@GetMapping(value="/chungnamList", produces= "application/xml; charset=UTF-8")
-	public String chungnamList()throws Exception {
-		log.info("충남 관광 명소 리스트 리스트");
-		StringBuffer sb = dataService.chungnamList();
-		
-		return sb.toString();
-	}
+
 	
 	
 }

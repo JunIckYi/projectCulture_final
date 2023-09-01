@@ -2,6 +2,8 @@ package com.spring.client.board.dao;
 
 
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -88,12 +90,44 @@ public class BoardTests {
 //	}
 	
 	
+//	@Test
+//	public void deleteTest() {
+//		BoardVO bvo = new BoardVO();
+//		bvo.setB_num(1);
+//		
+//		log.info("deleteTest 메소드 호출");
+//	}
+	
+	
+//	@Test
+//	public void testBoardList() {
+//		BoardVO bvo = new BoardVO();
+//		bvo.setSearch("b_title");
+//		bvo.setKeyword("기쪽이");
+//		
+//		List<BoardVO> list = boardDAO.boardList(bvo);
+//		for(BoardVO vo : list) {
+//			log.info(vo.toString());
+//		}
+//		
+//	}
 	@Test
-	public void deleteTest() {
-		BoardVO bvo = new BoardVO();
-		bvo.setB_num(1);
-		
-		log.info("deleteTest 메소드 호출");
+	public void testBoardList() {
+			BoardVO bvo = new BoardVO();
+			bvo.setPageNum(1);
+			bvo.setAmount(10);
+			
+			//검색조건 부여
+			bvo.setSearch("b_title");
+			bvo.setKeyword("힘이");
+
+			List<BoardVO> list = boardDAO.boardList(bvo);
+			for(BoardVO vo :list) {
+				log.info(vo.toString());
+			}
+			log.info("총 레코드수: "+boardDAO.boardListCnt(bvo) );
+			
+			
 	}
 	
 	

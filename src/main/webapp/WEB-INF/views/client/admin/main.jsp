@@ -54,8 +54,8 @@
 		
 		
 		  $("#loginBtn").click(function(){
-			  if(!chkData("#a_id", "아이디를")) return;
-			  else if(!chkData("#a_pwd", "비밀번호를")) return;
+			  if(!chkData("#mid", "아이디를")) return;
+			  else if(!chkData("#mpw", "비밀번호를")) return;
 			  else{
 			     $("#loginForm").attr({
 			    	 "method":"post",
@@ -83,16 +83,16 @@
       	 <form class="form-signin" id="loginForm">
 	    	<a><img src="/resources/image/cultureLogo.jpg" width="340"></a>
 	         <h2 class="form-signin-heading">관리자 로그인</h2>
-         <label for="a_id" class="sr-only">아이디</label> 
-         <input type="text" name = "a_id" id="a_id" class="form-control" placeholder="아이디"> 
+         <label for="mid" class="sr-only">아이디</label> 
+         <input type="text" name = "mid" id="mid" class="form-control" placeholder="아이디"> 
          
-         <label for="a_pwd" class="sr-only">비밀번호</label> 
-         <input type="password" name = "a_pwd" id="a_pwd" class="form-control" placeholder="비밀번호">
+         <label for="mpw" class="sr-only">비밀번호</label> 
+         <input type="password" name = "mpw" id="mpw" class="form-control" placeholder="비밀번호">
          <button class="btn btn-lg btn-primary btn-block" type="button" id="loginBtn">로그인</button>
       </form>
       </c:if>
       <c:if test = "${not empty adminLogin}">
-         <h3>${adminLogin.a_name} 님 환영합니다.</h3>
+         <h3>${adminLogin.mid} 님 환영합니다.</h3>
          <br/>
          <button type = "button" id = "logOutBtn">로그아웃</button>
       </c:if> 

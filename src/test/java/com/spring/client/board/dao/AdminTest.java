@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.spring.admin.login.dao.AdminLoginDao;
-import com.spring.admin.login.vo.AdminLoginVO;
+import com.spring.admin.login.vo.AdminVO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -20,12 +20,12 @@ public class AdminTest {
 	
 	@Test
 	public void loginTest() {
-		AdminLoginVO avo = new AdminLoginVO();
+		AdminVO avo = new AdminVO();
 		
-		avo.setA_id("admin");
-		avo.setA_pwd("1234");
+		avo.setMid("admin");
+		avo.setMpw("1234");
 		
-		AdminLoginVO result = adminLoginDao.loginProcess(avo);
+		AdminVO result = adminLoginDao.loginProcess(avo);
 		
 		log.info(result.toString());
 		

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.client.board.service.BoardService;
 import com.spring.client.board.vo.BoardVO;
-
+import com.spring.common.vo.PageDTO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -27,17 +27,29 @@ public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService boardService;
 	
-	@GetMapping("/boardList")
-	public String boardList(Model model) {
-		log.info("boardList 호출 성공");
-		// 전체 레코드 조회
-		
-		List<BoardVO> boardList = boardService.boardList();
-		model.addAttribute("boardList",boardList);
-		return "client/board/boardList";
-		
-	}
+	/****************************************************************
+    * 글목록 구현하기(페이징 처리 목록 조회)
+    ****************************************************************/
+   @GetMapping("/boardList")
+   public String boardList(@ModelAttribute BoardVO bvo, Model model) {
+      log.info("boardList 호출 성공");
+      
+      //전체 레코드 조회
+      List<BoardVO> boardList = boardService.boardList(bvo);
+      model.addAttribute("boardList", boardList);
+      
+      //전체 레코드 수 반환
+      int total = boardService.boardListCnt(bvo);
+      //페이징 처리
+      model.addAttribute("pageMaker", new PageDTO(bvo, total));
+      //new PageDTO(CommonVO 또는 CommonVO 하위 클래스의 인스턴스(BoardVO), 총 레코드 수)
+      
+      return "client/board/boardList";
+   }
 	
+	/*******************************************************************
+	 *글쓰기 폼 출력하기
+	 ********************************************************************/
 	@GetMapping("/writeForm")
 	public String writheForm (){
 		log.info("writheForm 호출 성공");
