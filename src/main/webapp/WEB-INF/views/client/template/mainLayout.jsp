@@ -90,8 +90,13 @@
 
 
 </script>
+<!-- <style type="text/css"> -->
+
+	
+	
+<!-- </style> -->
     <!-- Begin page content -->
-    <div class="contentLayout container">
+    <div  > <!-- class="contentLayout container" -->
      <!-- ////////////////////////////////////////////////////////// -->
      
      
@@ -128,11 +133,12 @@
             </div>
         </div>
     </header>
+    
 
    
  
     
-   <div id="bgColor" >
+   
      <section id="banner">
         <div class="banner_menu">
             <h2 class="ir_so">배너 영역</h2>
@@ -140,16 +146,16 @@
                 <div class="row">
                     <div class="bm_left">
                         <ul>
-                            <li class="total"><a href="#">전체메뉴</a></li>
+                            <li class="total"><a href="/admin/loginPage">전체메뉴</a></li>
                             <li class="line"><a href="#">필름 소사이어티</a></li>
                             <li><a href="#">클래식 소사이어티</a></li>
                         </ul>
                     </div>
                     <div class="bm_right">
                         <ul>
-                            <li class="line"><a href="#">고객센터</a></li>
-                            <li class="line"><a href="/admin/loginPage">테스트</a></li>
-                            <li><a href="#">VIP</a></li>
+<!--                             <li class="line"><a href="#">고객센터</a></li> -->
+<!--                             <li class="line"><a href="">테스트</a></li> -->
+<!--                             <li><a href="#">VIP</a></li> -->
                         </ul>
                         <ul>
 <!--                             <li class="white"><a href="#">상영시간표</a></li> -->
@@ -160,40 +166,65 @@
             </div>
         </div>
         <div class="slider">
+<!--             <div class="swiper-container"> -->
+<!--                 <div class="swiper-wrapper"> -->
+<%--                     <div class="swiper-slide ss1" style="background: url('https://image.tmdb.org/t/p/original${popular[0].backdrop_path}'); no-repeat; center; center; background-size: cover;" > --%>
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<%--                                 <h2>${popular[0].title}<em>${popular[0].original_title}</em></h2> --%>
+<!-- <!--                                 <p>차원이 다른 히어로가 온다!</p> --> 
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<%--                     <div class="swiper-slide ss2" style="background: url('https://image.tmdb.org/t/p/original${upcoming[1].backdrop_path}'); no-repeat; center; center; background-size: cover;"> --%>
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<%--                                 <h2>${upcoming[1].title} <em>${upcoming[1].original_title}</em></h2> --%>
+<!-- <!--                                 <p>세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.</p> --> 
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<%--                     <div class="swiper-slide ss3" style="background: url('https://image.tmdb.org/t/p/original${movies[1].backdrop_path}'); no-repeat; center; center; background-size: cover;"> --%>
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<%--                                 <h2>${movies[1].title} <em>${movies[1].original_title}</em></h2> --%>
+<!-- <!--                                 <p>모두의 운명을 건 그들의 압도적 전투가 시작된다!</p> --> 
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--                 <div class="swiper-pagination"></div> -->
+<!--                 <div class="swiper-button-prev"></div> -->
+<!--                 <div class="swiper-button-next"></div> -->
+<!--             </div> -->
+
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide ss1">
+                    <div class="swiper-slide ss1" >
+                    	    <iframe
+						        
+						        src="https://www.youtube.com/embed/6fLFLPLu6gY?si=RWSKyDPCHWd-088t&amp;controls=0&autoplay=1&loop=1&playlist=6fLFLPLu6gY"
+						        title="YouTube video player"
+						        frameborder="0"
+						        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+
+						        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+						        
+						    ></iframe>
                         <div class="container">
                             <div class="row">
-                                <h2>더 플래시<em>The Flash</em></h2>
-                                <p>차원이 다른 히어로가 온다!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss2">
-                        <div class="container">
-                            <div class="row">
-                                <h2>오펜하이머 <em>Oppenheimer</em></h2>
-                                <p>세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss3">
-                        <div class="container">
-                            <div class="row">
-                                <h2>트랜스포머: 비스트의 서막 <em>Transformers: Rise of the Beasts</em></h2>
-                                <p>모두의 운명을 건 그들의 압도적 전투가 시작된다!</p>
+                                <h2>이퀄라이저3<em>The Equalizer 3</em></h2>
+<!--                                 <p>차원이 다른 히어로가 온다!</p> -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
-  </div>
+    
+<!--     <iframe width="560" height="315" src="https://www.youtube.com/embed/6fLFLPLu6gY?si=RWSKyDPCHWd-088t&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+  
    
     <!-- //검색바 -->
 <!--    <nav class="navbar navbar-light bg-light"> -->
@@ -212,7 +243,7 @@
 		<div class="searchBar">
 <!-- 		class="d-flex" -->
 		   <form id="search" name="search"  >  
-			  <input type="text" placeholder="영화를 검색하세요." class="searchBarInput" name="title1" value="오펜하이머"/>
+			  <input type="text" placeholder="영화를 검색하세요." class="searchBarInput" name="title1" />
 			  <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" id="searchBtn" name="searchBtn" class="searchBarImg">
 		  </form>
 		</div>
@@ -226,152 +257,156 @@
 
 
         <!-- //검색바 끝 -->
-    <section id="movie">
-        <div class="container">
-            <div class="row">
-                <h2 class="ir_so">영화 예매</h2>
-                <div class="movie">
-                    <div class="movie_title">
-                        <ul class="clearfix">
-                            <li class="active"><a href="#">인기순위</a></li>
-                            <li><a href="#">최신개봉작</a></li>
-                            <li><a href="#">상영예정작</a></li>
-                            <li><a href="#">미정</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie_chart">
-                   		<div class="swiper-container2">
-					        <div class="chart_cont1 swiper-wrapper">
-					            <c:forEach var="moviepop" items="${popular}">
-					                <div class="swiper-slide">
-					                    <div class="poster">
-					                        <figure>
-					                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path} 2x'/>" alt="<c:out value='${moviepop.title}'/>" >
-					                        </figure>
-					                        <div class="rank"><strong><c:out value='${moviepop.rank}' /></strong></div>
-					                        <div class="mx">
-					                            <span class="icon m ir_pm">MX</span>
-					                            <span class="icon b ir_pm">Boutique</span>
-					                            <!-- 필요한 정보를 여기에 추가하세요 -->
-					                        </div>
-					                    </div>
-					                    <div class="infor">
-					                        <h3>
-<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
-					                            <strong><c:out value='${moviepop.title}'/></strong>
-					                        </h3>
-					                        <div class="infor_btn">
-					                        
-					                            <a href="#">상세정보</a>
-					                            <a href="#">예매하기</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </c:forEach>
-					        </div>
-					    </div>
-                        <!-- //chart_cont1-->
-                        <div class="swiper-container2">
-					        <div class="chart_cont2 swiper-wrapper">
-					            <c:forEach var="movie" items="${movies}">
-					                <div class="swiper-slide">
-					                    <div class="poster">
-					                        <figure>
-					                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
-					                        </figure>
-<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
-					                        <div class="mx">
-					                            <span class="icon m ir_pm">MX</span>
-					                            <span class="icon b ir_pm">Boutique</span>
-					                            <!-- 필요한 정보를 여기에 추가하세요 -->
-					                        </div>
-					                    </div>
-					                    <div class="infor">
-					                        <h3>
-<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
-					                            <strong><c:out value='${movie.title}'/></strong>
-					                        </h3>
-					                        <div class="infor_btn">
-					                        
-					                            <a href="#">상세정보</a>
-					                            <a href="#">예매하기</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </c:forEach>
-					        </div>
-					    </div>
-                        <!-- //chart_cont2-->
-                        
-                     <div class="swiper-container2">
-					        <div class="chart_cont3 swiper-wrapper">
-					            <c:forEach var="movieup" items="${upcoming}">
-					                <div class="swiper-slide">
-					                    <div class="poster">
-					                        <figure>
-					                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path} 2x'/>" alt="<c:out value='${movieup.title}'/>" >
-					                        </figure>
-<%-- 					                        <div class="rank"><strong><c:out value='${loop.index + 1}' /></strong></div> --%>
-					                        <div class="mx">
-					                            <span class="icon m ir_pm">MX</span>
-					                            <span class="icon b ir_pm">Boutique</span>
-					                            <!-- 필요한 정보를 여기에 추가하세요 -->
-					                        </div>
-					                    </div>
-					                    <div class="infor">
-					                        <h3>
-<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
-					                            <strong><c:out value='${movieup.title}'/></strong>
-					                        </h3>
-					                        <div class="infor_btn">
-					                        
-					                            <a href="#">상세정보</a>
-					                            <a href="#">예매하기</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </c:forEach>
-					        </div>
-					    </div>
-                        <!-- //chart_cont3-->
-                        
-                       <div class="swiper-container2">
-					        <div class="chart_cont4 swiper-wrapper">
-					            <c:forEach var="movie" items="${movies}">
-					                <div class="swiper-slide">
-					                    <div class="poster">
-					                        <figure>
-					                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
-					                        </figure>
-<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
-					                        <div class="mx">
-					                            <span class="icon m ir_pm">MX</span>
-					                            <span class="icon b ir_pm">Boutique</span>
-					                            <!-- 필요한 정보를 여기에 추가하세요 -->
-					                        </div>
-					                    </div>
-					                    <div class="infor">
-					                        <h3>
-					                            <span class="icon all ir_pm">전체관람가</span> <strong><c:out value='${movie.title}'/></strong>
-					                        </h3>
-					                        <div class="infor_btn">
-					                        
-					                            <a href="#">상세정보</a>
-					                            <a href="#">예매하기</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </c:forEach>
-					        </div>
-					    </div>
-                        <!-- //chart_cont4-->
-                        
-                        <!-- //chart_cont4 end-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>  
+   <div id="chartColor">
+	   	<section id="movie">
+	        <div class="container">
+	            <div class="row">
+	                <h2 class="ir_so">영화 예매</h2>
+	                <div class="movie">
+	                    <div class="movie_title">
+	                        <ul class="clearfix">
+	                            <li class="active"><a href="#">인기순위</a></li>
+	                            <li><a href="#">최신개봉작</a></li>
+	                            <li><a href="#">상영예정작</a></li>
+	                            <li><a href="#">미정</a></li>
+	                        </ul>
+	                    </div>
+	                    <div class="movie_chart">
+	                   		<div class="swiper-container2">
+						        <div class="chart_cont1 swiper-wrapper">
+						            <c:forEach var="moviepop" items="${popular}">
+						                <div class="swiper-slide">
+						                    <div class="poster">
+						                        <figure>
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path} 2x'/>" alt="<c:out value='${moviepop.title}'/>" >
+						                        </figure>
+						                        <div class="rank"><strong><c:out value='${moviepop.rank}' /></strong></div>
+						                        <div class="mx">
+						                            <span class="icon m ir_pm">MX</span>
+						                            <span class="icon b ir_pm">Boutique</span>
+						                            <!-- 필요한 정보를 여기에 추가하세요 -->
+						                        </div>
+						                    </div>
+						                    <div class="infor">
+						                        <h3>
+	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
+						                            <strong><c:out value='${moviepop.title}'/></strong>
+						                        </h3>
+						                        <div class="infor_btn">
+						                        
+						                            <a href="#">상세정보</a>
+						                            <a href="#">예매하기</a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </c:forEach>
+						        </div>
+						    </div>
+	                        <!-- //chart_cont1-->
+	                        <div class="swiper-container2">
+						        <div class="chart_cont2 swiper-wrapper">
+						            <c:forEach var="movie" items="${movies}">
+						                <div class="swiper-slide">
+						                    <div class="poster">
+						                        <figure>
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
+						                        </figure>
+	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
+						                        <div class="mx">
+						                            <span class="icon m ir_pm">MX</span>
+						                            <span class="icon b ir_pm">Boutique</span>
+						                            <!-- 필요한 정보를 여기에 추가하세요 -->
+						                        </div>
+						                    </div>
+						                    <div class="infor">
+						                        <h3>
+	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
+						                            <strong><c:out value='${movie.title}'/></strong>
+						                        </h3>
+						                        <div class="infor_btn">
+						                        
+						                            <a href="#">상세정보</a>
+						                            <a href="#">예매하기</a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </c:forEach>
+						        </div>
+						    </div>
+	                        <!-- //chart_cont2-->
+	                        
+	                     <div class="swiper-container2">
+						        <div class="chart_cont3 swiper-wrapper">
+						            <c:forEach var="movieup" items="${upcoming}">
+						                <div class="swiper-slide">
+						                    <div class="poster">
+						                        <figure>
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path} 2x'/>" alt="<c:out value='${movieup.title}'/>" >
+						                        </figure>
+	<%-- 					                        <div class="rank"><strong><c:out value='${loop.index + 1}' /></strong></div> --%>
+						                        <div class="mx">
+						                            <span class="icon m ir_pm">MX</span>
+						                            <span class="icon b ir_pm">Boutique</span>
+						                            <!-- 필요한 정보를 여기에 추가하세요 -->
+						                        </div>
+						                    </div>
+						                    <div class="infor">
+						                        <h3>
+	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
+						                            <strong><c:out value='${movieup.title}'/></strong>
+						                        </h3>
+						                        <div class="infor_btn">
+						                        
+						                            <a href="#">상세정보</a>
+						                            <a href="#">예매하기</a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </c:forEach>
+						        </div>
+						    </div>
+	                        <!-- //chart_cont3-->
+	                        
+	                       <div class="swiper-container2">
+						        <div class="chart_cont4 swiper-wrapper">
+						            <c:forEach var="movie" items="${movies}">
+						                <div class="swiper-slide">
+						                    <div class="poster">
+						                        <figure>
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
+						                        </figure>
+	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
+						                        <div class="mx">
+						                            <span class="icon m ir_pm">MX</span>
+						                            <span class="icon b ir_pm">Boutique</span>
+						                            <!-- 필요한 정보를 여기에 추가하세요 -->
+						                        </div>
+						                    </div>
+						                    <div class="infor">
+						                        <h3>
+						                            <span class="icon all ir_pm">전체관람가</span> <strong><c:out value='${movie.title}'/></strong>
+						                        </h3>
+						                        <div class="infor_btn">
+						                        
+						                            <a href="#">상세정보</a>
+						                            <a href="#">예매하기</a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </c:forEach>
+						        </div>
+						    </div>
+	                        <!-- //chart_cont4-->
+	                        
+	                        <!-- //chart_cont4 end-->
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>  
+   
+   </div>
+    
     <!-- //movie -->
     
 

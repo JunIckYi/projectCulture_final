@@ -49,6 +49,7 @@ public class MovieServiceImpl implements MovieService{
                 String releaseDate = node.path("release_date").asText();
                 String posterPath = node.path("poster_path").asText();
                 String id = node.path("id").asText();
+                String original_title = node.path("original_title").asText();
                 
                 movieVO.setAdult(Boolean.parseBoolean(adult));
                 movieVO.setBackdrop_path(backdrop_path);
@@ -60,7 +61,7 @@ public class MovieServiceImpl implements MovieService{
                 movieVO.setVote_average(vote_average);
                 movieVO.setVote_count(Integer.parseInt(vote_count));
                 data.add(movieVO);
-
+                movieVO.setOriginal_title(original_title);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,6 +98,7 @@ public class MovieServiceImpl implements MovieService{
                 String releaseDate = node.path("release_date").asText();
                 String posterPath = node.path("poster_path").asText();
                 String id = node.path("id").asText();
+                String original_title = node.path("original_title").asText();
                 
                 movieVO.setAdult(Boolean.parseBoolean(adult));
                 movieVO.setBackdrop_path(backdrop_path);
@@ -108,6 +110,7 @@ public class MovieServiceImpl implements MovieService{
                 movieVO.setVote_average(vote_average);
                 movieVO.setVote_count(Integer.parseInt(vote_count));
                 movieVO.setRank(i);
+                movieVO.setOriginal_title(original_title);
                 
                 data.add(movieVO);
                 i++;
@@ -121,7 +124,7 @@ public class MovieServiceImpl implements MovieService{
 	
 	public List<MovieVO> getUpcomingMovies() {
 		int page=1;
-		String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY +"&language=ko-KO&region=kr&page="+page;
+		String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY +"&language=ko-KO&watch_region=kr&page="+page;
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		String responseBody = response.getBody();
 		
@@ -146,6 +149,7 @@ public class MovieServiceImpl implements MovieService{
                 String releaseDate = node.path("release_date").asText();
                 String posterPath = node.path("poster_path").asText();
                 String id = node.path("id").asText();
+                String original_title = node.path("original_title").asText();
                 
                 movieVO.setAdult(Boolean.parseBoolean(adult));
                 movieVO.setBackdrop_path(backdrop_path);
@@ -157,6 +161,7 @@ public class MovieServiceImpl implements MovieService{
                 movieVO.setVote_average(vote_average);
                 movieVO.setVote_count(Integer.parseInt(vote_count));
                 data.add(movieVO);
+                movieVO.setOriginal_title(original_title);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -203,6 +208,8 @@ public class MovieServiceImpl implements MovieService{
                 String posterPath = node.path("poster_path").asText();
                 String id = node.path("id").asText();
                 
+                
+                
                 movieVO.setAdult(Boolean.parseBoolean(adult));
                 movieVO.setBackdrop_path(backdrop_path);
                 movieVO.setTitle(title);
@@ -213,6 +220,7 @@ public class MovieServiceImpl implements MovieService{
                 movieVO.setVote_average(vote_average);
                 movieVO.setVote_count(Integer.parseInt(vote_count));
                 data.add(movieVO);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
