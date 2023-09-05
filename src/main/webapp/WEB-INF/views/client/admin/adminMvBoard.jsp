@@ -87,33 +87,7 @@
                 
                 
                 
-                	<%--============================================ 페이징 출력 시작 ======================================= --%>
-			     <div class="text-center">
-			        <ul class="pagination">
-			           <!-- 이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인 -->
-			           <c:if test="${pageMaker.prev}">
-			              <li class="paginate_button previous">
-			                 <a href="${pageMaker.startPage -1 }">Previous</a>
-			              </li>
-			           </c:if>
-			           
-			           <!-- 바로가기 번호 출력 -->
-			           <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-			              <li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':'' }">
-			                 <a href="${num}">${num}</a>
-			              </li>
-			           </c:forEach>
-			           
-			           <!-- 다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인 -->
-			           <c:if test="${pageMaker.next}">
-			              <li class="paginate_button next">
-			                 <a href="${pageMaker.endPage + 1 }">Next</a>
-			              </li>
-			           </c:if>
-			        </ul>
-			     </div>   
-      
-      <%-- ===========================================페이징 출력 종료============================================= --%>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

@@ -2,8 +2,12 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.spring.admin.notice.vo.NoticeVO" alias="notice"/>
 		<typeAlias type="com.spring.client.board.vo.BoardVO" alias="board"/>
 		<typeAlias type="com.spring.admin.login.vo.AdminVO" alias="adminLogin"/>
+		<typeAlias type="com.spring.client.visitor.vo.VisitorCount" alias="visitor"/>
+		
+		
 	</typeAliases>
 
 </configuration>

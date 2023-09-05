@@ -20,7 +20,7 @@
 
 
 		
- 		<link rel="stylesheet" type="text/css" href="/resources/dist/css/bootstrap.min.css" /> 
+<!--  		<link rel="stylesheet" type="text/css" href="/resources/dist/css/bootstrap.min.css" />  -->
  		<link rel="stylesheet" type="text/css" href="/resources/dist/css/bootstrap-theme.css" /> 
 		
 		<script type="text/javascript" src="/resources/dist/js/jquery-3.7.0.min.js"></script>

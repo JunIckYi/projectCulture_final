@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -61,11 +62,11 @@ public class AdminLoginController {
 	 * redirect:/admin/login으로 이동
 	 **************************************************************/
 	@GetMapping("/login")
-	public String adminBoard(HttpSession session, Model model, RedirectAttributes ras) {
-		log.info("adminBoard  login 호출 성공");
+	public String adminBoard(@SessionAttribute("adminLogin") AdminVO adminLogin, Model model, RedirectAttributes ras) {
 		
-		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
+		log.info("adminBoard  login 호출 성공");
 		log.info("adminLogin:" + adminLogin);
+		
 		String url = "";
 		model.addAttribute("adminLogin", adminLogin);
 		
@@ -83,7 +84,7 @@ public class AdminLoginController {
 	}
 	
 	@PostMapping("/login")
-	public String loginProcess(AdminVO login, Model model, RedirectAttributes ras) {
+	public String loginProcess(HttpSession session,AdminVO login, Model model, RedirectAttributes ras) {
 		log.info("loginProcess 호출 성공");
 		AdminVO adminLogin = adminLoginService.loginProcess(login);
 		String url = "";
@@ -106,10 +107,8 @@ public class AdminLoginController {
     }
    
     @GetMapping("/mgMyPage")
-   public String mgMyPage(HttpSession session, Model model, RedirectAttributes ras) {
+   public String mgMyPage(@SessionAttribute("adminLogin") AdminVO adminLogin, Model model, RedirectAttributes ras) {
     	log.info("mgMyPage 호출 성공");
-    	
-		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
 		log.info("adminLogin:" + adminLogin);
 		String url = "";
 		model.addAttribute("adminLogin", adminLogin);
@@ -119,11 +118,11 @@ public class AdminLoginController {
 		log.info("adminUpdate:" + adminUpdate);
 		
 		if(adminLogin != null) {
-			model.addAttribute("adminLogin",adminLogin);
+			model.addAttribute("adm		inLogin",adminLogin);
 			 url = "client/admin/mgMyPage";
 		}else {
 			ras.addFlashAttribute("errorMsg","로그인 실패");
-			 url = "client/admin/loginPage";
+			 url = "redirect:/admin/loginPage";
 		}
 		
 		return url;
@@ -132,22 +131,18 @@ public class AdminLoginController {
     }
     
     @PostMapping("/mgMyPageUpdate")
-   public String mgMyPageUpdate(AdminVO avo,Model model) {
+   public String mgMyPageUpdate(@SessionAttribute("adminLogin") AdminVO adminLogin,AdminVO avo,Model model) {
     	log.info("mgMyPageUpdate: mgMyPageUpdate 호출 성공");
     	adminLoginService.mgMyPageUpdate(avo);
-    	AdminVO adminLogin = adminLoginService.loginProcess(avo);
     	model.addAttribute("adminLogin",adminLogin);
-    	
 	    return "client/admin/adminBoard";
     }
     
     
     
     @GetMapping("/adminMvBoard")
-   public String adminMvBoard(HttpSession session,Model model,RedirectAttributes ras) {
+   public String adminMvBoard(@SessionAttribute("adminLogin") AdminVO adminLogin,Model model,RedirectAttributes ras) {
 		log.info("adminBoard 호출 성공");
-		
-		AdminVO adminLogin =(AdminVO) session.getAttribute("adminLogin");
 		log.info("adminLogin:" + adminLogin);
 		String url = "";
 		model.addAttribute("adminLogin", adminLogin);

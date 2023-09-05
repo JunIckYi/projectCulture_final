@@ -9,17 +9,22 @@
 		<script type="text/javascript">
 		    $(function(){
 			  $("#updateBtn").click(function(){
+				  let confirmed = confirm("정보를 수정하시겠습니까?");
+				  
 				  if(!chkData("#memail", "이메일을")) return;
 				  else if(!chkData("#mpw", "비밀번호를")) return;
 				  else if(!chkData("#mphone", "전화번호를")) return;
 				  else if(!chkData("#mdepart", "부서를")) return;
-				 
-				  else{
-				     $("#mg_mp_update").attr({
-				    	 "method":"post",
-				    	 "action":"/admin/mgMyPageUpdate"
-				     });
-		           $("#mg_mp_update").submit();
+				  else{  
+					  if (confirmed) {
+						     $("#mg_mp_update").attr({
+						    	 "method":"post",
+						    	 "action":"/admin/mgMyPageUpdate"
+						     });
+				         	 $("#mg_mp_update").submit();
+						} else {
+							 location.href="/admin/login";
+						}
 		        }
 
 			  });

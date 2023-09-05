@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.client.visitor.dao.VisitorCountDao">
+<!--    <resultMap id="visitorCountResultMap" type="com.example.vo.VisitorCount"> -->
+<!--         <id property="id" column="id"/> -->
+<!--         <result property="dailyCount" column="daily_count"/> -->
+<!--         <result property="totalCount" column="total_count"/> -->
+<!--         <result property="countDate" column="count_date"/> -->
+<!--     </resultMap> -->
+
+<!--     <insert id="increaseDailyVisitorCount" parameterType="java.util.Date"> -->
+<!--         INSERT INTO VisitorCount (id, daily_count, total_count, count_date) -->
+<!--         VALUES (visitor_count_seq.nextval, 1, 1, #{date}) -->
+<!--         ON DUPLICATE KEY UPDATE -->
+<!--         daily_count = daily_count + 1, -->
+<!--         total_count = total_count + 1; -->
+<!--     </insert> -->
+
+<!--     <select id="getDailyVisitorCount" resultType="java.lang.Integer" parameterType="java.util.Date"> -->
+<!--         SELECT daily_count -->
+<!--         FROM VisitorCount -->
+<!--         WHERE count_date = #{date}; -->
+<!--     </select> -->
+
+<!--     <select id="getTotalVisitorCount" resultType="java.lang.Integer" parameterType="java.util.Date"> -->
+<!--         SELECT total_count -->
+<!--         FROM VisitorCount -->
+<!--         WHERE count_date = #{date}; -->
+<!--     </select> -->
+
+
+
+</mapper>

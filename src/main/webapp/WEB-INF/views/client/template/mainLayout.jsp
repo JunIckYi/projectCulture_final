@@ -45,7 +45,9 @@
     <link rel="stylesheet" href="/resources/assets/css/swiper.css">
     <script type="text/javascript" src="/resources/js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript">
+
     $(function(){
+    	
 		$(".movieDetail").click(function(){
 			let id = $(this).parents("tr").attr("data-num");
 			console.log("id :", id);
@@ -71,7 +73,7 @@
     <script src="assets/js/html5shiv.min.js"></script>
     <script type="text/javascript">
        alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
-    </script>
+    </script>-->
     
     
     
@@ -82,10 +84,10 @@
 
   <body>
 
-    <!-- Fixed navbar -->
-<!--     <nav class="navbar navbar-default navbar-fixed-top"> -->
-<%-- 		<tiles:insertAttribute name="header" /> --%>
-<!--     </nav> -->
+<!--  Fixed navbar  -->
+    <nav class="navbar navbar-default navbar-fixed-top"> 
+ 		<tiles:insertAttribute name="header" /> 
+     </nav> 
 <script type="text/javascript">
 
 
@@ -96,11 +98,8 @@
 	
 <!-- </style> -->
     <!-- Begin page content -->
-    <div  > <!-- class="contentLayout container" -->
+    <div class="contentLayout container" > 
      <!-- ////////////////////////////////////////////////////////// -->
-     
-     
-     
        <header id="header">
         <div class="container">
             <div class="row">
@@ -108,8 +107,8 @@
                     <h1>
                         <a href="#">
                         	
-                            <em><img src="/resources/assets/img/문화빛길.jpg" alt="culture" style="margin-bottom: 20px;" ></em>
-                            <strong><img src="/resources/assets/img/logo-sub.png" alt="LIFE THEATER"></strong>
+                            <em><img src="/resources/assets/img/문화빛길Long.jpg" alt="culture" style="width : 150px" ></em>
+<!--                             <strong><img src="/resources/assets/img/logo-sub.png" alt="LIFE THEATER"></strong> -->
                         </a>    
                     </h1>
                     <nav id="mNav">
@@ -120,12 +119,12 @@
                         <ul class="clearfix">
                             <li><a href="#">영화</a></li>
 <!--                             <li><a href="#">뮤지컬</a></li> -->
-<!--                             <li><a href="#">영화관</a></li> -->
+                            <li><a href="#">영화관</a></li>
 <!--                             <li><a href="#">오시는길</a></li> -->
                             <li><a href="/board/boardList">게시판</a></li>
                             <li><a href="#">로그인</a></li>
-<!--                             <li><a href="#">회원가입</a></li> -->
-<!--                             <li><a href="#">관리자</a></li> -->
+                            <li><a href="#">회원가입</a></li>
+                            <li><a href="/admin/loginPage">관리자</a></li>
                             <li><a href="#" onclick="event.preventDefault(); requestPay();">결제하기</a>
                         </ul>
                     </nav>    
@@ -142,13 +141,13 @@
      <section id="banner">
         <div class="banner_menu">
             <h2 class="ir_so">배너 영역</h2>
-            <div class="container">
-                <div class="row">
+            <div class="container"  >
+                <div class="row" >
                     <div class="bm_left">
                         <ul>
-                            <li class="total"><a href="/admin/loginPage">전체메뉴</a></li>
-                            <li class="line"><a href="#">필름 소사이어티</a></li>
-                            <li><a href="#">클래식 소사이어티</a></li>
+                            <li class="total"><a href="#">전체메뉴</a></li>
+<!--                             <li class="line"><a href="#">필름 소사이어티</a></li> -->
+<!--                             <li><a href="#">클래식 소사이어티</a></li> -->
                         </ul>
                     </div>
                     <div class="bm_right">
@@ -165,59 +164,97 @@
                 </div>
             </div>
         </div>
-        <div class="slider">
-<!--             <div class="swiper-container"> -->
-<!--                 <div class="swiper-wrapper"> -->
-<%--                     <div class="swiper-slide ss1" style="background: url('https://image.tmdb.org/t/p/original${popular[0].backdrop_path}'); no-repeat; center; center; background-size: cover;" > --%>
-<!--                         <div class="container"> -->
-<!--                             <div class="row"> -->
-<%--                                 <h2>${popular[0].title}<em>${popular[0].original_title}</em></h2> --%>
-<!-- <!--                                 <p>차원이 다른 히어로가 온다!</p> --> 
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<%--                     <div class="swiper-slide ss2" style="background: url('https://image.tmdb.org/t/p/original${upcoming[1].backdrop_path}'); no-repeat; center; center; background-size: cover;"> --%>
-<!--                         <div class="container"> -->
-<!--                             <div class="row"> -->
-<%--                                 <h2>${upcoming[1].title} <em>${upcoming[1].original_title}</em></h2> --%>
-<!-- <!--                                 <p>세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.</p> --> 
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<%--                     <div class="swiper-slide ss3" style="background: url('https://image.tmdb.org/t/p/original${movies[1].backdrop_path}'); no-repeat; center; center; background-size: cover;"> --%>
-<!--                         <div class="container"> -->
-<!--                             <div class="row"> -->
-<%--                                 <h2>${movies[1].title} <em>${movies[1].original_title}</em></h2> --%>
-<!-- <!--                                 <p>모두의 운명을 건 그들의 압도적 전투가 시작된다!</p> --> 
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--                 <div class="swiper-pagination"></div> -->
-<!--                 <div class="swiper-button-prev"></div> -->
-<!--                 <div class="swiper-button-next"></div> -->
-<!--             </div> -->
-
+        <div class="slider" >
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide ss1" >
-                    	    <iframe
-						        
-						        src="https://www.youtube.com/embed/6fLFLPLu6gY?si=RWSKyDPCHWd-088t&amp;controls=0&autoplay=1&loop=1&playlist=6fLFLPLu6gY"
-						        title="YouTube video player"
-						        frameborder="0"
-						        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-
-						        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-						        
-						    ></iframe>
+                    <div class="swiper-slide ss1" style="background: url('https://image.tmdb.org/t/p/original${popular[0].backdrop_path}'); no-repeat; center; center; background-size: cover;" >
                         <div class="container">
                             <div class="row">
-                                <h2>이퀄라이저3<em>The Equalizer 3</em></h2>
-<!--                                 <p>차원이 다른 히어로가 온다!</p> -->
+                                <h2>${popular[0].title}<em>${popular[0].original_title}</em></h2>
+<!--                                  <p>차원이 다른 히어로가 온다!</p>   -->
                             </div>
                         </div>
                     </div>
+                    <div class="swiper-slide ss2" style="background: url('https://image.tmdb.org/t/p/original${upcoming[0].backdrop_path}'); no-repeat; center; center; background-size: cover;">
+                        <div class="container">
+                            <div class="row">
+                                <h2>${upcoming[0].title} <em>${upcoming[0].original_title}</em></h2>
+<!--                                   <p>세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.</p>   -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ss3" style="background: url('https://image.tmdb.org/t/p/original${movies[1].backdrop_path}'); no-repeat; center; center; background-size: cover;">
+                        <div class="container">
+                            <div class="row">
+                                <h2>${movies[1].title} <em>${movies[1].original_title}</em></h2>
+<!--                                   <p>모두의 운명을 건 그들의 압도적 전투가 시작된다!</p>   -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+			<!-- ///////////////////    동영상    /////////////////////// &mute=1 -->  
+<!--             <div class="swiper-container"> -->
+<!--                 <div class="swiper-wrapper"> -->
+<!--                     <div class="swiper-slide ss1" > -->
+<!--                     	    <iframe -->
+<!-- 						        src="https://www.youtube.com/embed/6fLFLPLu6gY?si=w0EisgYoqn4sfWUZ?rel=0&amp;autoplay=1&amp;loop=1;playlist=6fLFLPLu6gY&controls=0" frameborder="0"  -->
+<!-- 						        title="YouTube video player" -->
+<!-- 						        frameborder="0" -->
+<!-- 						        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" -->
+<!-- 						        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" -->
+						
+<!-- 						    ></iframe> -->
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<!--                                 <h2>이퀄라이저3<em>The Equalizer 3</em></h2> -->
+<!-- <!--                                  <p>차원이 다른 히어로가 온다!</p> --> 
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                     <div class="swiper-slide ss1" > -->
+<!--                     	    <iframe -->
+<!-- 						        src="https://www.youtube.com/embed/oPY476IF-ic?si=8hclQBXl6FK5rOb_?rel=0&amp;autoplay=1&mute=1&amp;loop=1;playlist=oPY476IF-ic&controls=0" frameborder="0" -->
+<!-- 						        title="YouTube video player" -->
+<!-- 						        frameborder="0" -->
+<!-- 						        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" -->
+<!-- 						        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" -->
+<!-- 						    ></iframe>  -->
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<!--                                 <h2>마브카: 숲의 노래<em>MAVKA The Forest Song</em></h2> -->
+<!--                                 <p>차원이 다른 히어로가 온다!</p> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                     <div class="swiper-slide ss1" > -->
+<!--                     	    <iframe -->
+<!-- 						        src="https://www.youtube.com/embed/Aos7vzZukWQ?si=66aRHiJSDwyKoARy?rel=0&amp;autoplay=1&mute=1&amp;loop=1;playlist=Aos7vzZukWQ&controls=0" frameborder="0" -->
+<!-- 						        title="YouTube video player" -->
+<!-- 						        frameborder="0" -->
+<!-- 						        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" -->
+<!-- 						        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" -->
+						
+<!-- 						    ></iframe> -->
+<!--                         <div class="container"> -->
+<!--                             <div class="row"> -->
+<!--                                 <h2>더 넌2<em>The Nun2</em></h2> -->
+<!-- <!--                                 <p>차원이 다른 히어로가 온다!</p> --> 
+<!--                             </div> -->
+<!--                         </div> -->
+                        
+                       
+<!--                     </div> -->
+<!--                      </div>  -->
+<!-- 		                <div class="swiper-pagination"></div> -->
+<!-- 		                <div class="swiper-button-prev"></div> -->
+<!-- 		                <div class="swiper-button-next"></div> -->
+<!-- 		            </div> -->
+		            
+		            		<!-- ///////////////////    동영상 끝   /////////////////////// -->
                 </div>
             </div>
         </div>
@@ -243,7 +280,7 @@
 		<div class="searchBar">
 <!-- 		class="d-flex" -->
 		   <form id="search" name="search"  >  
-			  <input type="text" placeholder="영화를 검색하세요." class="searchBarInput" name="title1" />
+			  <input type="text" placeholder="영화를 검색하세요." class="searchBarInput" name="title1" id="searchBarInputId"/>
 			  <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" id="searchBtn" name="searchBtn" class="searchBarImg">
 		  </form>
 		</div>
@@ -265,10 +302,10 @@
 	                <div class="movie">
 	                    <div class="movie_title">
 	                        <ul class="clearfix">
-	                            <li class="active"><a href="#">인기순위</a></li>
-	                            <li><a href="#">최신개봉작</a></li>
-	                            <li><a href="#">상영예정작</a></li>
-	                            <li><a href="#">미정</a></li>
+	                            <li class="chart_color active movie_title_shape" ><a href="#">인기순위</a></li>
+	                            <li class="movie_title_shape" ><a href="#">최신개봉작</a></li>
+	                            <li class="movie_title_shape"><a href="#">상영예정작</a></li>
+	                            <li class="movie_title_shape"><a href="#">미정</a></li>
 	                        </ul>
 	                    </div>
 	                    <div class="movie_chart">
@@ -278,7 +315,7 @@
 						                <div class="swiper-slide">
 						                    <div class="poster">
 						                        <figure>
-						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path} 2x'/>" alt="<c:out value='${moviepop.title}'/>" >
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${moviepop.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${moviepop.poster_path} 2x'/>" alt="<c:out value='${moviepop.title}'/>" >
 						                        </figure>
 						                        <div class="rank"><strong><c:out value='${moviepop.rank}' /></strong></div>
 						                        <div class="mx">
@@ -292,9 +329,9 @@
 	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
 						                            <strong><c:out value='${moviepop.title}'/></strong>
 						                        </h3>
-						                        <div class="infor_btn">
+						                        <div class="infor_btn" >
 						                        
-						                            <a href="#">상세정보</a>
+						                            <a href="/admin/loginPage">상세정보</a>
 						                            <a href="#">예매하기</a>
 						                        </div>
 						                    </div>
@@ -309,7 +346,7 @@
 						                <div class="swiper-slide">
 						                    <div class="poster">
 						                        <figure>
-						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
 						                        </figure>
 	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
 						                        <div class="mx">
@@ -323,8 +360,7 @@
 	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
 						                            <strong><c:out value='${movie.title}'/></strong>
 						                        </h3>
-						                        <div class="infor_btn">
-						                        
+						                        <div class="infor_btn" style="z-index:-1" >
 						                            <a href="#">상세정보</a>
 						                            <a href="#">예매하기</a>
 						                        </div>
@@ -341,7 +377,7 @@
 						                <div class="swiper-slide">
 						                    <div class="poster">
 						                        <figure>
-						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path} 2x'/>" alt="<c:out value='${movieup.title}'/>" >
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${movieup.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movieup.poster_path} 2x'/>" alt="<c:out value='${movieup.title}'/>" >
 						                        </figure>
 	<%-- 					                        <div class="rank"><strong><c:out value='${loop.index + 1}' /></strong></div> --%>
 						                        <div class="mx">
@@ -373,7 +409,7 @@
 						                <div class="swiper-slide">
 						                    <div class="poster">
 						                        <figure>
-						                            <img src="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
+						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
 						                        </figure>
 	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
 						                        <div class="mx">
@@ -418,6 +454,7 @@
     <script src="/resources/assets/js/swiper.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script>
+    	
         //배너 이미지 슬라이드
         var swiper = new Swiper('.swiper-container',{
             pagination: {
@@ -516,6 +553,7 @@
     
     <script type="text/javascript">
     	$(function(){
+    		
     		$("#home").attr({class : "active"});
     	})
     </script>
