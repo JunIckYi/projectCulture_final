@@ -17,7 +17,7 @@
 
 	<!-- <select id="loginProcess" parameterType="adminLogin" resultType="adminLoginMap"> -->	
 	<select id="loginProcess" parameterType="adminLogin" resultType="adminLogin">
-		select MANAGER_SEQ.nextval,mid, memail,mphone ,mdepart, sysdate
+		select mno,mid,memail,mphone,mdepart,sysdate
 		from MANAGER
 		where mid=#{mid} and mpw = #{mpw}
 	</select>
@@ -41,6 +41,13 @@
 		from MANAGER
 		where mid=#{mid}
 	</select>
+	
+	
+	
+	<select id="pwdConfirm" parameterType="adminLogin" resultType="int">
+ 	 
+ 	  select nvl((select 1 from MANAGER where mpw = #{mpw}), 0) as result from dual
+    </select>
     
     
 

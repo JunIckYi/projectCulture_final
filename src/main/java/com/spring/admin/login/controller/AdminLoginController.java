@@ -87,6 +87,7 @@ public class AdminLoginController {
 	public String loginProcess(HttpSession session,AdminVO login, Model model, RedirectAttributes ras) {
 		log.info("loginProcess 호출 성공");
 		AdminVO adminLogin = adminLoginService.loginProcess(login);
+		log.info("adminLogin 정보 :" + adminLogin);
 		String url = "";
 		
 		if(adminLogin != null) {

@@ -10,23 +10,47 @@
 		</if>
 	</sql>
 
-	<select id="noticeList" resultType="notice" parameterType="notice">
 
-		<![CDATA[
-		select noc_num, noc_title, noc_content, to_char(noc_write_date,'MM-DD HH24:MI')as noc_write_date, readcnt 
-		    from(
-		        select /*+ index_desc(notice notice_pk) */ 
-		            rownum as rnum, noc_num, noc_title, noc_content, noc_write_date, readcnt
-		        from notice where]]>
-		    <trim prefix="(" suffix=") and " prefixOverrides="and">
-				<include refid="noticeSearch"></include>
-			</trim>
-			<![CDATA[
-			rownum <=#{pageNum}*#{amount}
-				) boardlist
-			where rnum > (#{pageNum}-1)*#{amount}
-			]]>
+<!-- 	<select id="noticeList" resultType="notice" parameterType="notice"> -->
+
+<!-- 		<![CDATA[ -->
+<!-- 		select noc_num, noc_title, noc_content, to_char(noc_write_date,'MM-DD HH24:MI')as noc_write_date, readcnt  -->
+<!-- 		    from( -->
+<!-- 		        select /*+ index_desc(notice notice_pk) */  -->
+<!-- 		            rownum as rnum, noc_num, noc_title, noc_content, noc_write_date, readcnt -->
+<!-- 		        from notice where]]> -->
+<!-- 		    <trim prefix="(" suffix=") and " prefixOverrides="and"> -->
+<!-- 				<include refid="noticeSearch"></include> -->
+<!-- 			</trim> -->
+<!-- 			<![CDATA[ -->
+<!-- 			rownum <=#{pageNum}*#{amount} -->
+<!-- 				) boardlist -->
+<!-- 			where rnum > (#{pageNum}-1)*#{amount} -->
+<!-- 			]]> -->
+<!-- 	</select> -->
+
+	<select id="noticeList" resultType="notice" parameterType="notice">
+	    <![CDATA[
+	    select noc_num, noc_title, noc_content, to_char(noc_write_date, 'MM-DD HH24:MI') as noc_write_date, readcnt, mid
+	    from (
+	        select /*+ index_desc(notice notice_noc_num_pk) */ 
+	            rownum as rnum, noc_num, noc_title, noc_content, noc_write_date, readcnt, mid
+	        from notice n
+	        inner join manager m on n.mno = m.mno
+	        where
+	    ]]>
+	    <trim prefix="(" suffix=") and " prefixOverrides="and">
+	        <include refid="noticeSearch"></include>
+	    </trim>
+	    <![CDATA[
+	        rownum <= #{pageNum}*#{amount}
+	        ORDER BY noc_num DESC
+	    ) boardlist
+	    where rnum > (#{pageNum}-1)*#{amount}
+	    ]]>
 	</select>
+
+
 	
 	<select id="noticeCnt" parameterType="notice" resultType="int">
 		select count(*) from notice
@@ -36,8 +60,8 @@
 	</select>
 	
 	<select id="noticeDetail" resultType="notice" parameterType="int">
-		select noc_num, noc_title, noc_content, to_char(noc_write_date,'YYYY-MM-DD HH24:MI:SS')as noc_write_date, readcnt
-		from notice where noc_num=#{noc_num}
+		select noc_num, noc_title, noc_content, to_char(noc_write_date,'YYYY-MM-DD HH24:MI:SS')as noc_write_date, readcnt, mid
+		from notice n inner join manager m on n.mno = m.mno where noc_num=#{noc_num}
 	</select>
 	
 	<select id="readCntUpdate" parameterType="notice">
@@ -52,6 +76,18 @@
  		 WHERE noc_num = #{noc_num}
     </update>
 	
+	<delete id="nboardDelete" parameterType="notice">
+	 	delete from notice where noc_num = #{noc_num}
+	</delete>
+	
+	
+	
+	<insert id="nBoearInsert"  parameterType="notice">
+		Insert into notice ( noc_num, mno, noc_title, noc_content, noc_write_date, readcnt) 
+		values (notice_seq.nextval, #{mno}, #{noc_title}, #{noc_content},sysdate, 0)
+	</insert>
+	
+
 	
 	
 </mapper>

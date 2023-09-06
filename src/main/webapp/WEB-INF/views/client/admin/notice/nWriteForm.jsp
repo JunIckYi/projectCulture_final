@@ -5,18 +5,24 @@
 	<script type="text/javascript">
 
    	$(function(){
-	    if(!chkData("#noc_title", "제목을")) return;
-		else if(!chkData("#noc_content", "내욜을")) return;
-		else{ 
-			$("#updateConfirm").click(function(){
-		
-					$("#notiupdate").attr({
-						"method":"post",
-						"action":"/notice/nBoardUpdate"
-					})
-					$("#notiupdate").submit();
+   		$("#writeConfirm").click(function(){
+   		    if(!chkData("#noc_title", "제목을")) return;
+   			else if(!chkData("#noc_content", "내욜을")) return;
+   			else{ 
+				$("#notiWrite").attr({
+					"method":"post",
+					"action":"/notice/nBoearInsert"
 				})
-		}	
+				$("#notiWrite").submit();
+					
+   			}	
+   			
+   			
+   		});
+
+    	$("#noticeGoback").click(function(){
+    		location.href = "/notice/board"
+    	})
 	 }); 
 	
 	
@@ -56,31 +62,24 @@
 	
 
 	<div class="container contentContainer totalCover">
-		<form name="notiupdate" id="notiupdate" method="post">
+		<form name="notiWrite" id="notiWrite" method="post">
 			<div class="contentTit page-header">
-				<h3 class="text-center" ><input type="text" class="form-control col-lg-8 text-center tsize" id="noc_title" name="noc_title" value="${detail.noc_title }"></h3>
+				<h3 class="text-center" ><input type="text" class="form-control col-lg-8 text-left tsize" id="noc_title" name="noc_title" placeholder="[공지] 제목" ></h3>
 			</div>
 			<div class="contentTB text-center">
 				<table class="table table-bordered table-striped table-hover aa">
 					<tbody>
-						<tr>
-							<td class="col-md-3">작성자 : ${detail.mid} </td>
-							<td class="col-md-3 text-left">조회수: ${detail.readcnt}</td>
-							<td class="col-md-3">작성일</td>
-							<td class="col-md-3 text-left">${detail.noc_write_date}</td>
-						</tr>
 						<!-- 이 부분에 추가한 CSS 클래스 적용 -->
 						<tr class="table-tr-height">
 							<td colspan="4" class="col-md-10 text-left">
-							
-							<textarea rows="10" cols="10" class="form-control" style="resize: none" id="noc_content" name="noc_content" >${detail.noc_content}</textarea>
+							<textarea rows="10" cols="10" class="form-control" style="resize: none" id="noc_content" name="noc_content" placeholder="공지 내용을 입력하세요." ></textarea>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 				<div>
-				<input type="hidden" id="noc_num" name="noc_num" value="${detail.noc_num}">
-				<button type="button" class="btn btn-primary" id="updateConfirm">확인</button>
+				<input type="hidden" id="mno" name="mno" value="${adminLogin.mno}" >
+				<button type="button" class="btn btn-primary" id="writeConfirm">확인</button>
 				<button type="button" class="btn btn-primary" id="noticeGoback">목록</button>
 				</div>
 			</div>

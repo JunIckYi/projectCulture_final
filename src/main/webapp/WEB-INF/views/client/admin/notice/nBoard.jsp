@@ -58,8 +58,8 @@ $(function(){
 		goPage();
 	})
 	
-    $("#insertFormBtn").click(function(){
-        location.href="/board/writeForm";
+    $("#insertformBtn").click(function(){
+        location.href="/notice/nWriteForm";
      });
 })
 
@@ -124,7 +124,7 @@ function goPage(){
 		</form>
 
 		<div id="boardList" class="table-height noticeboard">
-			<table summary="게시판 리스트" class="table table-striped" >
+			<table summary="게시판 리스트" class="table" >
 				<thead>
 					<tr>
 						<th data-value="b_num" class="order text-center col-md-1" >글번호</th>
@@ -195,9 +195,7 @@ function goPage(){
 
 		<%-- ================ 글쓰기 버튼 ================ --%>
 
-		<c:if test="${empty adminLogin }">
-			
-		</c:if>
+
 
 
 	</div>

@@ -9,5 +9,6 @@ public interface AdminLoginDao {
 	public AdminVO loginProcess(AdminVO login);
 	public int mgMyPageUpdate(AdminVO avo);
 	public AdminVO adminInfoList(AdminVO avo);
+	public int pwdConfirm(AdminVO avo);
 	
 }

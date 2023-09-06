@@ -3,6 +3,8 @@ package com.spring.admin.notice.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+
+import com.spring.admin.login.vo.AdminVO;
 import com.spring.admin.notice.vo.NoticeVO;
 
 
@@ -14,5 +16,9 @@ public interface NoticeDAO {
 	public NoticeVO noticeDetail(NoticeVO nvo);
 	public void readCntUpdate(NoticeVO nvo);
 	public int nBoardUpdate(NoticeVO nvo);
+	public int nboardDelete(NoticeVO nvo);
+	public int nBoearInsert(NoticeVO nvo);
+
+	
 	
 }
