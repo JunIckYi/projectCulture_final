@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.client.board.service.BoardService;
 import com.spring.client.board.vo.BoardVO;
+import com.spring.client.visitor.service.VisitorService;
+import com.spring.client.visitor.vo.VisitorVO;
 import com.spring.common.vo.PageDTO;
 
 import lombok.Setter;
@@ -27,11 +29,14 @@ public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService boardService;
 	
+	@Setter(onMethod_ = @Autowired)
+	private VisitorService VisitorService;
+	
 	/****************************************************************
     * 글목록 구현하기(페이징 처리 목록 조회)
     ****************************************************************/
    @GetMapping("/boardList")
-   public String boardList(@ModelAttribute BoardVO bvo, Model model) {
+   public String boardList(@ModelAttribute BoardVO bvo,VisitorVO vvo, Model model) {
       log.info("boardList 호출 성공");
       
       //전체 레코드 조회

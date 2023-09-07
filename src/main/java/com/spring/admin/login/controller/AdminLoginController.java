@@ -1,5 +1,7 @@
 package com.spring.admin.login.controller;
 
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.spring.admin.login.service.AdminLoginService;
 
 import com.spring.admin.login.vo.AdminVO;
+import com.spring.client.visitor.service.VisitorService;
+import com.spring.client.visitor.vo.VisitorVO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +41,9 @@ public class AdminLoginController {
 	
 	@Setter(onMethod_ = @Autowired)
 	public AdminLoginService adminLoginService;
+	
+	@Setter(onMethod_ = @Autowired)
+	private VisitorService VisitorService;
 	
 	
 	@GetMapping("/loginPage")
@@ -70,8 +77,9 @@ public class AdminLoginController {
 		String url = "";
 		model.addAttribute("adminLogin", adminLogin);
 		
-		
 		if(adminLogin != null) {
+			
+			
 			model.addAttribute("adminLogin",adminLogin);
 			 url = "client/admin/adminBoard";
 		}else  {
@@ -84,19 +92,37 @@ public class AdminLoginController {
 	}
 	
 	@PostMapping("/login")
-	public String loginProcess(HttpSession session,AdminVO login, Model model, RedirectAttributes ras) {
+	public String loginProcess(HttpSession session,AdminVO login,VisitorVO vvo, Model model, RedirectAttributes ras ) {
 		log.info("loginProcess 호출 성공");
 		AdminVO adminLogin = adminLoginService.loginProcess(login);
+
 		log.info("adminLogin 정보 :" + adminLogin);
 		String url = "";
 		
+
 		if(adminLogin != null) {
+			 
+			/*방문자 수 카운팅*/
+			vvo.setVISIT_ID(adminLogin.getMid());
+			VisitorService.insertVisitor(vvo);
+			
+			/*총 방문자 수 불러오는 코드*/
+			int tToday =VisitorService.visitsByToday();
+			model.addAttribute("tToday",tToday);
+			
+			/*하후 방문자 수 불러오는 코드*/
+			int vToday =VisitorService.visitsByToday();
+			model.addAttribute("vToday",vToday);
+			
 			model.addAttribute("adminLogin",adminLogin);
 			 url = "client/admin/adminBoard";
 		}else {
 			ras.addFlashAttribute("errorMsg","로그인 실패");
 			 url = "redirect:/admin/loginPage";
 		}
+
+
+
 		return url;
 	}
 	

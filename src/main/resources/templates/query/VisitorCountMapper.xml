@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.spring.client.visitor.dao.VisitorCountDao">
-<!--    <resultMap id="visitorCountResultMap" type="com.example.vo.VisitorCount"> -->
-<!--         <id property="id" column="id"/> -->
-<!--         <result property="dailyCount" column="daily_count"/> -->
-<!--         <result property="totalCount" column="total_count"/> -->
-<!--         <result property="countDate" column="count_date"/> -->
-<!--     </resultMap> -->
+<mapper namespace="com.spring.client.visitor.dao.VisitCountDAO">
 
-<!--     <insert id="increaseDailyVisitorCount" parameterType="java.util.Date"> -->
-<!--         INSERT INTO VisitorCount (id, daily_count, total_count, count_date) -->
-<!--         VALUES (visitor_count_seq.nextval, 1, 1, #{date}) -->
-<!--         ON DUPLICATE KEY UPDATE -->
-<!--         daily_count = daily_count + 1, -->
-<!--         total_count = total_count + 1; -->
-<!--     </insert> -->
-
-<!--     <select id="getDailyVisitorCount" resultType="java.lang.Integer" parameterType="java.util.Date"> -->
-<!--         SELECT daily_count -->
-<!--         FROM VisitorCount -->
-<!--         WHERE count_date = #{date}; -->
-<!--     </select> -->
-
-<!--     <select id="getTotalVisitorCount" resultType="java.lang.Integer" parameterType="java.util.Date"> -->
-<!--         SELECT total_count -->
-<!--         FROM VisitorCount -->
-<!--         WHERE count_date = #{date}; -->
-<!--     </select> -->
+    <insert id="insertVisitor" parameterType="visitor">
+		INSERT INTO VISITOR (VISIT_NO,VISIT_ID,VISIT_TIME) 
+		VALUES (VISITOR_SEQ.NEXTVAL,#{VISIT_ID},SYSDATE)
+ 		
+    </insert>
+    
+    <select id="visitsByToday" resultType="int">
+    SELECT COUNT(*) 
+    FROM VISITOR
+    WHERE TO_CHAR(VISIT_TIME, 'YYYY-MM-DD') = TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+	</select>
+	
+	<select id="visitsByTotal" resultType="int">
+    SELECT COUNT(*) 
+    FROM VISITOR
+	</select>
+    
 
 
 
