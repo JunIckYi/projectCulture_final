@@ -150,6 +150,9 @@ public class NoticeController {
 			return url;
 		}
 		
+		
+		
+		
 		@PostMapping("/nBoearInsert")
 		public String nBoearInsert(@SessionAttribute("adminLogin") AdminVO adminLogin,NoticeVO nvo, Model model) {
 			log.info("nBoearInsert 호출 성공");

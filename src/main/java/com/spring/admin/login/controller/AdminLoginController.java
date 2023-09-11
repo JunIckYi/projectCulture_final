@@ -107,7 +107,7 @@ public class AdminLoginController {
 			VisitorService.insertVisitor(vvo);
 			
 			/*총 방문자 수 불러오는 코드*/
-			int tToday =VisitorService.visitsByToday();
+			int tToday =VisitorService.visitsByTotal();
 			model.addAttribute("tToday",tToday);
 			
 			/*하후 방문자 수 불러오는 코드*/

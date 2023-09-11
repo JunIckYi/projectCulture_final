@@ -17,7 +17,8 @@
     <link rel="icon" href="/resources/image/common/icon1.png">
     
    	<script type="text/javascript" src="/resources/dist/js/jquery-3.7.0.min.js"></script>
-	<script type="text/javascript" src="/resources/dist/js/common.js"></script>
+	<script type="text/javascript" src="/resources/js/common.js"></script>
+	
 
     <title><tiles:getAsString name = "title" /></title>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -66,6 +66,39 @@
 			})
 			$("#search").submit();
 		})
+		
+		
+	    var mySwiper = new Swiper('.swiper-container', {
+	        // 스와이퍼 옵션 설정
+	        // ...
+	    });
+
+// 	    // 각 슬라이드에 클릭 이벤트 리스너 추가
+// 	    var swiperSlides = document.querySelectorAll('.swiper-slide');
+// 	    swiperSlides.forEach(function(slide) {
+// 	        slide.addEventListener('click', function() {
+// 	            // 클릭한 슬라이드의 게시물 번호를 가져옵니다.
+// 	            var movieId = this.querySelector('.moviepopNo').value;
+// 	            console.log("클릭한 슬라이드의 게시물 번호: " + movieId);
+
+// 	            // 가져온 게시물 번호를 이용하여 필요한 작업을 수행할 수 있습니다.
+// 	            // 예를 들어, 해당 게시물 번호를 서버로 보내거나 페이지 이동을 처리할 수 있습니다.
+// 	        });
+// 	    });
+	    
+		// 각 .swiper-slide 내의 input[type="hidden"]에서 value 값을 가져와서 출력
+	    $('.swiper-slide').click(function() {
+	        var movieId = $(this).find('input[type="hidden"]').val();
+	        console.log("클릭한 슬라이드의 영화 ID: " + movieId);
+	        // 가져온 영화 ID를 서버로 보내거나 페이지 이동과 같은 추가 작업을 수행할 수 있습니다.
+	    });
+
+
+
+
+
+
+
 	})
     </script>
     
@@ -74,9 +107,11 @@
     <script type="text/javascript">
        alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
     </script>-->
+  
     
-    
-    
+    <style type="text/css">
+
+    </style>
     
     
     
@@ -88,15 +123,8 @@
     <nav class="navbar navbar-default navbar-fixed-top"> 
  		<tiles:insertAttribute name="header" /> 
      </nav> 
-<script type="text/javascript">
 
 
-</script>
-<!-- <style type="text/css"> -->
-
-	
-	
-<!-- </style> -->
     <!-- Begin page content -->
     <div class="contentLayout container" > 
      <!-- ////////////////////////////////////////////////////////// -->
@@ -183,10 +211,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide ss3" style="background: url('https://image.tmdb.org/t/p/original${movies[1].backdrop_path}'); no-repeat; center; center; background-size: cover;">
+                    <div class="swiper-slide ss3" style="background: url('https://image.tmdb.org/t/p/original${movies[0].backdrop_path}'); no-repeat; center; center; background-size: cover;">
                         <div class="container">
                             <div class="row">
-                                <h2>${movies[1].title} <em>${movies[1].original_title}</em></h2>
+                                <h2>${movies[0].title} <em>${movies[0].original_title}</em></h2>
 <!--                                   <p>모두의 운명을 건 그들의 압도적 전투가 시작된다!</p>   -->
                             </div>
                         </div>
@@ -305,7 +333,7 @@
 	                            <li class="chart_color active movie_title_shape" ><a href="#">인기순위</a></li>
 	                            <li class="movie_title_shape" ><a href="#">최신개봉작</a></li>
 	                            <li class="movie_title_shape"><a href="#">상영예정작</a></li>
-	                            <li class="movie_title_shape"><a href="#">미정</a></li>
+	                            <li class="movie_title_shape"><a href="#">최신개봉작</a></li>
 	                        </ul>
 	                    </div>
 	                    <div class="movie_chart">
@@ -319,8 +347,8 @@
 						                        </figure>
 						                        <div class="rank"><strong><c:out value='${moviepop.rank}' /></strong></div>
 						                        <div class="mx">
-						                            <span class="icon m ir_pm">MX</span>
-						                            <span class="icon b ir_pm">Boutique</span>
+<!-- 						                            <span class="icon m ir_pm">MX</span> -->
+<!-- 						                            <span class="icon b ir_pm">Boutique</span> -->
 						                            <!-- 필요한 정보를 여기에 추가하세요 -->
 						                        </div>
 						                    </div>
@@ -330,16 +358,19 @@
 						                            <strong><c:out value='${moviepop.title}'/></strong>
 						                        </h3>
 						                        <div class="infor_btn" >
-						                        
-						                            <a href="/admin/loginPage">상세정보</a>
-						                            <a href="#">예매하기</a>
+<!-- 						                            <a href="/admin/loginPage" class="detailInfo">상세정보</a> -->
+<!-- 						                            <a href="#">예매하기</a> -->
 						                        </div>
+						                        <form id="moviepopNo">
+						                        	<input type="hidden" id="mpopNo" name="mpopNo" value="${moviepop.id}"  />
+						                        </form>
+						                        
 						                    </div>
 						                </div>
 						            </c:forEach>
 						        </div>
 						    </div>
-	                        <!-- //chart_cont1-->
+<!-- 	                        //chart_cont1 -->
 	                        <div class="swiper-container2">
 						        <div class="chart_cont2 swiper-wrapper">
 						            <c:forEach var="movie" items="${movies}">
@@ -349,26 +380,29 @@
 						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
 						                        </figure>
 	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
-						                        <div class="mx">
-						                            <span class="icon m ir_pm">MX</span>
-						                            <span class="icon b ir_pm">Boutique</span>
-						                            <!-- 필요한 정보를 여기에 추가하세요 -->
-						                        </div>
-						                    </div>
-						                    <div class="infor">
-						                        <h3>
-	<!-- 					                            <span class="icon all ir_pm">전체관람가</span>  -->
+ 						                        <div class="mx"> 
+<!--  						                            <span class="icon m ir_pm">MX</span>  -->
+<!-- 						                            <span class="icon b ir_pm">Boutique</span>  -->
+ 						                          
+ 						                        </div> 
+ 						                    </div> 
+ 						                    <div class="infor"> 
+ 						                        <h3> 
+ 						                            <span class="icon all ir_pm">전체관람가</span>  
 						                            <strong><c:out value='${movie.title}'/></strong>
-						                        </h3>
-						                        <div class="infor_btn" style="z-index:-1" >
-						                            <a href="#">상세정보</a>
-						                            <a href="#">예매하기</a>
-						                        </div>
-						                    </div>
-						                </div>
+ 						                        </h3> 
+ 						                        <div class="infor_btn"  > 
+<!--  						                            <a href="/admin/loginPage">상세정보</a>  -->
+<!--  						                            <a href="/admin/loginPage">예매하기</a>  -->
+ 						                        </div> 
+ 						                        <form id="movieNo"> 
+						                        	<input type="hidden" id="mNo" name="mNo" value="${movie.id}" />
+ 						                        </form> 
+ 						                    </div> 
+ 						                </div> 
 						            </c:forEach>
-						        </div>
-						    </div>
+ 						        </div> 
+ 						    </div> 
 	                        <!-- //chart_cont2-->
 	                        
 	                     <div class="swiper-container2">
@@ -381,9 +415,9 @@
 						                        </figure>
 	<%-- 					                        <div class="rank"><strong><c:out value='${loop.index + 1}' /></strong></div> --%>
 						                        <div class="mx">
-						                            <span class="icon m ir_pm">MX</span>
-						                            <span class="icon b ir_pm">Boutique</span>
-						                            <!-- 필요한 정보를 여기에 추가하세요 -->
+<!-- 						                            <span class="icon m ir_pm">MX</span> -->
+<!-- 						                            <span class="icon b ir_pm">Boutique</span> -->
+<!-- 						                            필요한 정보를 여기에 추가하세요 -->
 						                        </div>
 						                    </div>
 						                    <div class="infor">
@@ -393,9 +427,12 @@
 						                        </h3>
 						                        <div class="infor_btn">
 						                        
-						                            <a href="#">상세정보</a>
-						                            <a href="#">예매하기</a>
+<!-- 						                            <a href="/admin/loginPage">상세정보</a> -->
+<!-- 						                            <a href="/admin/loginPage">예매하기</a> -->
 						                        </div>
+						                         <form id="movieUpNo">
+						                        	<input type="hidden" id="mUpNo" name="mUpNo" value="${movieup.id}"  />
+						                        </form>
 						                    </div>
 						                </div>
 						            </c:forEach>
@@ -411,7 +448,7 @@
 						                        <figure>
 						                            <img src="<c:out value='http://image.tmdb.org/t/p/w342${movie.poster_path}'/>" srcset="<c:out value='http://image.tmdb.org/t/p/w400${movie.poster_path} 2x'/>" alt="<c:out value='${movie.title}'/>" >
 						                        </figure>
-	<%-- 					                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
+<%-- 						                        <div class="rank"><strong><c:out value='${movie.rank}' /></strong></div> --%>
 						                        <div class="mx">
 						                            <span class="icon m ir_pm">MX</span>
 						                            <span class="icon b ir_pm">Boutique</span>
@@ -424,9 +461,12 @@
 						                        </h3>
 						                        <div class="infor_btn">
 						                        
-						                            <a href="#">상세정보</a>
-						                            <a href="#">예매하기</a>
+<!-- 						                            <a href="/admin/loginPage"></a> 
+ 						                            <a href="/admin/loginPage">예매하기</a> -->
 						                        </div>
+						                         <form id="movieNo">
+						                        	<input type="hidden" id="mNo" name="m No" value="${movie.id}"  />
+						                        </form>
 						                    </div>
 						                </div>
 						            </c:forEach>
@@ -442,10 +482,11 @@
 	    </section>  
    
    </div>
+
     
     <!-- //movie -->
     
-
+	
     
     <!-- 자바스크립트 라이브러리 -->
 <!--     <script src="/resources/assets/js/jquery.min_1.12.4.js"></script> -->
@@ -573,8 +614,8 @@
      
      
      <!-- ////////////////////////////////////////////////////////// -->
-     
-    </div>
+    <div id="bottomGap"> </div>
+    
 
     <footer class="footer">
      	<tiles:insertAttribute name="footer" />

@@ -69,8 +69,10 @@
 .slider .swiper-slide h2 em {display: block; font-size: 59px; font-weight: 100;}
 .slider .swiper-slide p {font-size: 27px; color: #fff; padding-top: 55px;}
 
+
+
 /* 무비 */
-.movie {padding: 100px 0;}
+.movie {padding: 100px 0; margin-bottom: 150px;}
 .movie_title {margin-bottom: 60px;}
 .movie_title ul {overflow: hidden; width: 848px; margin: 0 auto;}
 .movie_title li {float: left; width: 210px; text-align: center; border: 1px solid #c4c4c4; margin-right: -1px;}
@@ -131,6 +133,7 @@
     .slider .swiper-slide h2 em {font-size: 34px;}
     .slider .swiper-slide p {font-size: 16px; padding-top: 35px;}
     
+    
     .movie_title ul {width: auto;}
     .movie_title li {width: 25%; box-sizing: border-box; }
 }
@@ -156,12 +159,14 @@
 }
 
 @media (max-width: 600px){
-    .slider {height: 400px;}
+    .slider {height: 400px; }
     .slider .swiper-slide h2 {margin-top: 140px; font-size: 24px; line-height: 30px;}
     .slider .swiper-slide h2:after {bottom: -5px;}
     .slider .swiper-slide h2 em {font-size: 20px;}
     .slider .swiper-slide p {font-size: 14px; padding-top: 25px;}
     
+    
+   
     .banner_menu {top: 16px;}
     .banner_menu .bm_right li.white a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
     .banner_menu .bm_right li.purple a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
@@ -206,7 +211,6 @@
 
 
 .search1{
-	
 	margin-top: 40px;
 	margin-bottom: 40px;
 }
@@ -215,7 +219,6 @@
 .searchBar {
   position: relative;
   width: 500px;;
-
   margin: auto;
 }
 
@@ -227,7 +230,6 @@
 .searchBarInput {
   width: 100%;
   border: 1px solid #bbb;
-
   padding: 10px 12px;
   font-size: 14px;
   text-align: center;
@@ -250,9 +252,6 @@ body{
 	background-color: rgb(0, 0, 0);
 	
 }
-
-
-
 
 
 
